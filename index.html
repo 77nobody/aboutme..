@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>喻素 · 自我介绍</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FAF6EF;
+    --paper:#F3EEE3;
+    --ink:#2E3B37;
+    --ink-soft:#5C6B65;
+    --sage:#8FAE8B;
+    --sage-soft:#DCE7D8;
+    --coral:#E38A6E;
+    --coral-soft:#F6DED3;
+    --gold:#C79A4B;
+    --line: rgba(46,59,55,0.14);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Noto Sans SC', sans-serif;
+    font-weight:300;
+    line-height:1.7;
+    overflow-x:hidden;
+  }
+  ::selection{ background:var(--coral-soft); color:var(--ink);}
+
+  /* subtle paper texture via layered radial gradients */
+  body::before{
+    content:"";
+    position:fixed; inset:0;
+    background-image:
+      radial-gradient(circle at 20% 20%, rgba(143,174,139,0.08), transparent 40%),
+      radial-gradient(circle at 80% 70%, rgba(227,138,110,0.08), transparent 45%);
+    pointer-events:none;
+    z-index:0;
+  }
+
+  .wrap{
+    max-width:760px;
+    margin:0 auto;
+    padding:0 28px;
+    position:relative;
+    z-index:1;
+  }
+
+  /* ---------- HERO ---------- */
+  header.hero{
+    min-height:88vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding-top:40px;
+  }
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.28em;
+    color:var(--sage);
+    text-transform:uppercase;
+    margin-bottom:22px;
+    opacity:0;
+    animation: fadeUp .8s ease forwards .1s;
+  }
+  h1.name{
+    font-family:'Noto Serif SC', serif;
+    font-weight:700;
+    font-size:clamp(52px, 11vw, 96px);
+    letter-spacing:0.06em;
+    line-height:1.05;
+    color:var(--ink);
+    opacity:0;
+    animation: fadeUp .9s ease forwards .25s;
+  }
+  h1.name span{
+    display:inline-block;
+    position:relative;
+  }
+  h1.name span::after{
+    content:"";
+    position:absolute;
+    left:-4%; right:-4%; bottom:6%;
+    height:0.32em;
+    background:var(--coral-soft);
+    z-index:-1;
+    transform:scaleX(0);
+    transform-origin:left;
+    animation: swipe 0.7s cubic-bezier(.4,0,.2,1) forwards 1.05s;
+  }
+  @keyframes swipe{ to{ transform:scaleX(1); } }
+
+  .role-line{
+    margin-top:22px;
+    font-size:17px;
+    color:var(--ink-soft);
+    font-weight:400;
+    max-width:480px;
+    opacity:0;
+    animation: fadeUp .9s ease forwards .45s;
+  }
+  .role-line b{ color:var(--ink); font-weight:500; }
+
+  .contact-row{
+    margin-top:44px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+    opacity:0;
+    animation: fadeUp .9s ease forwards .6s;
+  }
+  .chip{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12.5px;
+    letter-spacing:0.02em;
+    padding:10px 16px;
+    border:1px solid var(--line);
+    border-radius:100px;
+    background:var(--paper);
+    color:var(--ink-soft);
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    transition: all .3s ease;
+    cursor:default;
+  }
+  .chip:hover{
+    border-color:var(--sage);
+    color:var(--ink);
+    transform:translateY(-2px);
+    box-shadow:0 6px 16px rgba(46,59,55,0.08);
+  }
+  .chip .dot{
+    width:6px; height:6px; border-radius:50%;
+    background:var(--sage);
+  }
+
+  .scroll-cue{
+    margin-top:70px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px;
+    color:var(--ink-soft);
+    letter-spacing:0.18em;
+    display:flex; align-items:center; gap:10px;
+    opacity:0;
+    animation: fadeUp .9s ease forwards .8s;
+  }
+  .scroll-cue::after{
+    content:"";
+    width:1px; height:30px;
+    background:linear-gradient(to bottom, var(--sage), transparent);
+    animation: growLine 1.6s ease-in-out infinite;
+  }
+  @keyframes growLine{ 0%,100%{opacity:.3} 50%{opacity:1} }
+  @keyframes fadeUp{ from{opacity:0; transform:translateY(14px);} to{opacity:1; transform:translateY(0);} }
+
+  /* ---------- SECTION SHELL ---------- */
+  section{
+    padding:110px 0 40px;
+    position:relative;
+  }
+  .sec-head{
+    display:flex;
+    align-items:baseline;
+    gap:16px;
+    margin-bottom:50px;
+  }
+  .sec-num{
+    font-family:'JetBrains Mono', monospace;
+    font-size:13px;
+    color:var(--sage);
+    letter-spacing:0.1em;
+  }
+  .sec-title{
+    font-family:'Noto Serif SC', serif;
+    font-size:30px;
+    font-weight:600;
+    letter-spacing:0.03em;
+  }
+  .sec-title small{
+    display:block;
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px;
+    font-weight:400;
+    letter-spacing:0.2em;
+    color:var(--ink-soft);
+    margin-top:6px;
+    text-transform:uppercase;
+  }
+
+  .reveal{
+    opacity:0;
+    transform:translateY(24px);
+    transition: opacity .8s ease, transform .8s ease;
+  }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  /* ---------- EDUCATION ---------- */
+  .edu-card{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:34px 32px;
+    position:relative;
+    overflow:hidden;
+  }
+  .edu-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-bottom:20px;
+  }
+  .edu-school{
+    font-family:'Noto Serif SC', serif;
+    font-size:24px;
+    font-weight:600;
+  }
+  .edu-major{
+    font-size:14px;
+    color:var(--coral);
+    margin-top:4px;
+    font-weight:500;
+  }
+  .edu-tag{
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px;
+    background:var(--sage-soft);
+    color:#3f5c3c;
+    padding:6px 12px;
+    border-radius:100px;
+    white-space:nowrap;
+  }
+  .edu-desc{
+    font-size:14.5px;
+    color:var(--ink-soft);
+    max-width:560px;
+    margin-bottom:22px;
+  }
+  .track-toggle{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    color:var(--ink-soft);
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    cursor:pointer;
+    user-select:none;
+    padding:8px 0;
+    border-top:1px dashed var(--line);
+    width:100%;
+    margin-top:6px;
+  }
+  .track-toggle .arrow{
+    transition:transform .35s ease;
+    font-size:10px;
+  }
+  .track-toggle.open .arrow{ transform:rotate(90deg); }
+  .track-body{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .5s ease;
+  }
+  .track-body.open{ max-height:220px; }
+  .track-list{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    padding-top:16px;
+  }
+  .track-pill{
+    font-size:13px;
+    background:var(--cream);
+    border:1px solid var(--line);
+    padding:9px 14px;
+    border-radius:12px;
+    color:var(--ink);
+    transition: transform .25s ease, border-color .25s ease;
+  }
+  .track-pill:hover{ transform:translateY(-3px); border-color:var(--coral); }
+
+  .school-path{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-top:24px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    color:var(--ink-soft);
+    flex-wrap:wrap;
+  }
+  .school-path .node{
+    padding:7px 13px;
+    border-radius:100px;
+    border:1px solid var(--line);
+    background:var(--cream);
+  }
+  .school-path .node.now{
+    background:var(--ink);
+    color:var(--cream);
+    border-color:var(--ink);
+  }
+  .school-path .seg{
+    width:22px; height:1px;
+    background:var(--line);
+    position:relative;
+  }
+  .school-path .seg::after{
+    content:"";
+    position:absolute; right:0; top:-2px;
+    width:5px; height:5px;
+    border-right:1px solid var(--ink-soft);
+    border-bottom:1px solid var(--ink-soft);
+    transform:rotate(-45deg);
+  }
+
+  /* ---------- HOBBIES ---------- */
+  .hobby-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:18px;
+  }
+  @media (max-width:640px){
+    .hobby-grid{ grid-template-columns:1fr; }
+  }
+  .hobby-card{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:26px 22px;
+    min-height:190px;
+    cursor:pointer;
+    position:relative;
+    overflow:hidden;
+    transition: border-color .3s ease, transform .3s ease;
+  }
+  .hobby-card:hover{ transform:translateY(-4px); border-color:var(--coral); }
+  .hobby-icon{
+    font-size:30px;
+    margin-bottom:16px;
+    display:inline-block;
+    transition: transform .4s ease;
+  }
+  .hobby-card:hover .hobby-icon{ transform:scale(1.15) rotate(-6deg); }
+  .hobby-title{
+    font-family:'Noto Serif SC', serif;
+    font-size:18px;
+    font-weight:600;
+    margin-bottom:10px;
+  }
+  .hobby-note{
+    font-size:13.5px;
+    color:var(--ink-soft);
+    max-height:0;
+    opacity:0;
+    overflow:hidden;
+    transition: max-height .4s ease, opacity .4s ease .05s;
+  }
+  .hobby-card.open .hobby-note{
+    max-height:120px;
+    opacity:1;
+  }
+  .hobby-hint{
+    position:absolute;
+    right:20px; top:24px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:10px;
+    color:var(--ink-soft);
+    opacity:.55;
+  }
+
+  /* ---------- FOOTER / SIGNATURE ---------- */
+  .sign-off{
+    margin-top:100px;
+    padding:60px 0 90px;
+    border-top:1px solid var(--line);
+    text-align:center;
+  }
+  .sign-word{
+    font-family:'Noto Serif SC', serif;
+    font-size:22px;
+    color:var(--ink-soft);
+    letter-spacing:0.1em;
+  }
+  .sign-sub{
+    margin-top:10px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px;
+    color:var(--sage);
+    letter-spacing:0.2em;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation:none !important; transition:none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="hero">
+    <div class="eyebrow">SELF INTRODUCTION · 2026</div>
+    <h1 class="name"><span>喻素</span></h1>
+    <p class="role-line">重庆云阳人，<b>宁波大学土木工程专业</b>准大一新生。<br>安静地做点小事，也愿意认真听别人说话。</p>
+    <div class="contact-row">
+      <span class="chip"><span class="dot"></span>19519270753</span>
+      <span class="chip"><span class="dot"></span>ys772299@outlook.com</span>
+      <span class="chip"><span class="dot"></span>重庆 · 云阳</span>
+    </div>
+    <div class="scroll-cue">向下滚动</div>
+  </header>
+
+  <section id="edu">
+    <div class="sec-head reveal">
+      <span class="sec-num">01</span>
+      <h2 class="sec-title">教育背景<small>Education</small></h2>
+    </div>
+
+    <div class="edu-card reveal">
+      <div class="edu-top">
+        <div>
+          <div class="edu-school">宁波大学</div>
+          <div class="edu-major">土木工程专业 · 准大一新生</div>
+        </div>
+        <span class="edu-tag">即将入学</span>
+      </div>
+      <p class="edu-desc">即将系统学习工程力学、结构设计与施工管理相关知识，目前处于升学衔接期，也在尝试接触一些跨学科内容，保持学习的状态。</p>
+
+      <div class="track-toggle" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open');">
+        <span class="arrow">▸</span> 主要学习方向（点击展开）
+      </div>
+      <div class="track-body">
+        <div class="track-list">
+          <span class="track-pill">工程力学</span>
+          <span class="track-pill">结构设计</span>
+          <span class="track-pill">施工管理</span>
+        </div>
+      </div>
+
+      <div class="school-path">
+        <span class="node">重庆市云阳实验中学校</span>
+        <span class="seg"></span>
+        <span class="node now">宁波大学</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="hobby">
+    <div class="sec-head reveal">
+      <span class="sec-num">02</span>
+      <h2 class="sec-title">个人爱好<small>Interests</small></h2>
+    </div>
+
+    <div class="hobby-grid">
+      <div class="hobby-card reveal" onclick="this.classList.toggle('open')">
+        <span class="hobby-hint">点击查看</span>
+        <div class="hobby-icon">🏸</div>
+        <div class="hobby-title">羽毛球</div>
+        <div class="hobby-note">平时喜欢和朋友打羽毛球，当作运动放松和交流的方式，也算是一种简单的解压途径。</div>
+      </div>
+
+      <div class="hobby-card reveal" onclick="this.classList.toggle('open')">
+        <span class="hobby-hint">点击查看</span>
+        <div class="hobby-icon">🎮</div>
+        <div class="hobby-title">游戏</div>
+        <div class="hobby-note">闲暇时会玩《三角洲行动》《无畏契约》《王者荣耀》等，比较享受和队友配合、一起解决问题的过程。</div>
+      </div>
+
+      <div class="hobby-card reveal" onclick="this.classList.toggle('open')">
+        <span class="hobby-hint">点击查看</span>
+        <div class="hobby-icon">📱</div>
+        <div class="hobby-title">刷视频 / 写作</div>
+        <div class="hobby-note">喜欢刷抖音了解一些新鲜内容，也对写作有一点兴趣，平时会写些小文章练笔，算是安静下来的方式。</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="sign-off reveal">
+    <div class="sign-word">谢谢你看到这里</div>
+    <div class="sign-sub">YU SU · 2026</div>
+  </div>
+
+</div>
+
+<script>
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.add('in'); }
+    });
+  }, {threshold:0.15});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
