@@ -375,6 +375,33 @@
     opacity:.55;
   }
 
+  /* ---------- HIGHLIGHTS ---------- */
+  .stat-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
+  @media (max-width:640px){ .stat-grid{ grid-template-columns:1fr; } }
+  .stat-card{
+    background:var(--paper); border:1px solid var(--line); border-radius:18px;
+    padding:24px 22px; transition: border-color .3s ease, transform .3s ease;
+  }
+  .stat-card:hover{ transform:translateY(-4px); border-color:var(--sage); }
+  .stat-num{ font-family:'Noto Serif SC', serif; font-size:30px; font-weight:700; color:var(--coral); line-height:1.1; }
+  .stat-label{ margin-top:8px; font-size:13.5px; color:var(--ink-soft); line-height:1.55; }
+
+  /* ---------- PROJECTS ---------- */
+  .proj-list{ display:flex; flex-direction:column; gap:18px; }
+  .proj-card{
+    background:var(--paper); border:1px solid var(--line); border-radius:18px;
+    padding:26px 24px; transition: border-color .3s ease, transform .3s ease;
+  }
+  .proj-card:hover{ transform:translateY(-3px); border-color:var(--coral); }
+  .proj-top{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:12px; }
+  .proj-title{ font-family:'Noto Serif SC', serif; font-size:19px; font-weight:600; }
+  .proj-tag{ font-family:'JetBrains Mono', monospace; font-size:11px; background:var(--sage-soft); color:#3f5c3c; padding:5px 11px; border-radius:100px; white-space:nowrap; }
+  .proj-desc{ font-size:14px; color:var(--ink-soft); line-height:1.7; margin-bottom:14px; }
+  .proj-stack{ display:flex; flex-wrap:wrap; gap:7px; margin-bottom:14px; }
+  .proj-stack span{ font-family:'JetBrains Mono', monospace; font-size:11px; padding:4px 9px; border-radius:8px; background:var(--cream); border:1px solid var(--line); color:var(--ink-soft); }
+  .proj-link{ font-family:'JetBrains Mono', monospace; font-size:12px; color:var(--coral); text-decoration:none; display:inline-flex; align-items:center; gap:7px; border-bottom:1px solid transparent; transition:border-color .3s ease; }
+  .proj-link:hover{ border-color:var(--coral); }
+
   /* ---------- FOOTER / SIGNATURE ---------- */
   .sign-off{
     margin-top:100px;
@@ -408,7 +435,7 @@
   <header class="hero">
     <div class="eyebrow">SELF INTRODUCTION · 2026</div>
     <h1 class="name"><span>喻素</span></h1>
-    <p class="role-line">重庆云阳人，<b>宁波大学土木工程专业</b>准大一新生。<br>安静地做点小事，也愿意认真听别人说话。</p>
+    <p class="role-line">重庆云阳人，<b>宁波大学土木工程专业</b>大一新生。<br>安静地做点小事，也愿意认真听别人说话。</p>
     <div class="contact-row">
       <span class="chip"><span class="dot"></span>19519270753</span>
       <span class="chip"><span class="dot"></span>ys772299@outlook.com</span>
@@ -417,9 +444,34 @@
     <div class="scroll-cue">向下滚动</div>
   </header>
 
-  <section id="edu">
+  <section id="highlights">
     <div class="sec-head reveal">
       <span class="sec-num">01</span>
+      <h2 class="sec-title">亮点成果<small>Highlights</small></h2>
+    </div>
+    <div class="stat-grid">
+      <div class="stat-card reveal">
+        <div class="stat-num">26届</div>
+        <div class="stat-label">世界华人学生作文大赛 · 初赛二等奖</div>
+      </div>
+      <div class="stat-card reveal">
+        <div class="stat-num">4项</div>
+        <div class="stat-label">科大讯飞 AI 大学堂官方认证</div>
+      </div>
+      <div class="stat-card reveal">
+        <div class="stat-num">10项</div>
+        <div class="stat-label">阿里云 Apsara Clouder 专项技能认证 + 人工智能训练师证书</div>
+      </div>
+      <div class="stat-card reveal">
+        <div class="stat-num">14项</div>
+        <div class="stat-label">AI 领域官方认证总数，覆盖 Prompt / 微调 / 智能体 / RAG / AIGC 等方向</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="edu">
+    <div class="sec-head reveal">
+      <span class="sec-num">02</span>
       <h2 class="sec-title">教育背景<small>Education</small></h2>
     </div>
 
@@ -427,11 +479,11 @@
       <div class="edu-top">
         <div>
           <div class="edu-school">宁波大学</div>
-          <div class="edu-major">土木工程专业 · 准大一新生</div>
+          <div class="edu-major">土木工程专业 · 大一新生</div>
         </div>
-        <span class="edu-tag">即将入学</span>
+        <span class="edu-tag">大一在读</span>
       </div>
-      <p class="edu-desc">即将系统学习工程力学、结构设计与施工管理相关知识，目前处于升学衔接期，也在尝试接触一些跨学科内容，保持学习的状态。</p>
+      <p class="edu-desc">在校系统学习工程力学、结构设计与施工管理相关知识，同时也在尝试接触一些跨学科内容，保持学习的状态。</p>
 
       <div class="track-toggle" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open');">
         <span class="arrow">▸</span> 主要学习方向（点击展开）
@@ -452,9 +504,51 @@
     </div>
   </section>
 
+  <section id="projects">
+    <div class="sec-head reveal">
+      <span class="sec-num">03</span>
+      <h2 class="sec-title">项目经历<small>Projects</small></h2>
+    </div>
+    <div class="proj-list">
+      <article class="proj-card reveal">
+        <div class="proj-top">
+          <div class="proj-title">钢铁洪流 · 坦克大战</div>
+          <span class="proj-tag">网页小游戏</span>
+        </div>
+        <p class="proj-desc">基于 HTML5 Canvas 独立开发的像素风坦克对战小游戏，含多波次敌人 AI、关卡 Boss、技能充能与成就系统，支持双人合作与对战。</p>
+        <div class="proj-stack">
+          <span>HTML5 Canvas</span><span>JavaScript</span><span>游戏状态机</span><span>GitHub Pages</span>
+        </div>
+        <a class="proj-link" href="https://77nobody.github.io/ironflood" target="_blank" rel="noopener noreferrer">访问在线项目 →</a>
+      </article>
+      <article class="proj-card reveal">
+        <div class="proj-top">
+          <div class="proj-title">每日计划 · Todo 工具</div>
+          <span class="proj-tag">生产力工具</span>
+        </div>
+        <p class="proj-desc">轻量级每日计划工具，支持任务分类、优先级、艾维利 6 要事法与数据复盘，数据本地存储。</p>
+        <div class="proj-stack">
+          <span>HTML5</span><span>CSS3</span><span>原生 JavaScript</span><span>localStorage</span>
+        </div>
+        <a class="proj-link" href="https://77nobody.github.io/todo/" target="_blank" rel="noopener noreferrer">访问在线项目 →</a>
+      </article>
+      <article class="proj-card reveal">
+        <div class="proj-top">
+          <div class="proj-title">手势控制 · 坦克大战测试版</div>
+          <span class="proj-tag">测试版本</span>
+        </div>
+        <p class="proj-desc">《钢铁洪流》手势控制测试版，通过摄像头实时识别手势并映射为游戏操作。</p>
+        <div class="proj-stack">
+          <span>HTML5</span><span>JavaScript</span><span>手势识别</span><span>Canvas</span>
+        </div>
+        <a class="proj-link" href="https://77nobody.github.io/gesture/" target="_blank" rel="noopener noreferrer">访问在线项目 →</a>
+      </article>
+    </div>
+  </section>
+
   <section id="hobby">
     <div class="sec-head reveal">
-      <span class="sec-num">02</span>
+      <span class="sec-num">04</span>
       <h2 class="sec-title">个人爱好<small>Interests</small></h2>
     </div>
 
